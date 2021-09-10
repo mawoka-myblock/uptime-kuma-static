@@ -11,6 +11,7 @@ config_login_password_auth = getenv("PASSWORD_LOGIN")
 config_password_login_password = getenv("UTKUMA_PASSWORD")
 config_password_login_username = getenv("UTKUMA_USERNAME")
 config_token_token = getenv("UTKUMA_TOKEN")
+config_base_url = getenv("UTKUMA_URL")
 
 sio = socketio.AsyncClient()
 mons = []
@@ -80,7 +81,7 @@ async def disconnect():
 
 async def main():
     task = sio.start_background_task(stop_after_10)
-    await sio.connect("https://status.mawoka.eu.org/")
+    await sio.connect(config_base_url)
     await sio.wait()
 
 
