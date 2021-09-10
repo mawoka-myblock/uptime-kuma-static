@@ -25,7 +25,8 @@ async def write_template():
 
 
 async def handle_callback(data):
-    print(data)
+    #print(data)
+    pass
 
 
 async def stop_after_10():
@@ -68,10 +69,8 @@ async def heartbeatList(id, data):
             try:
                 i["uptime"] = data
             except KeyError:
-                print("KeyError")
                 pass
 
-    print(json.dumps(mons))
 
 
 @sio.event
