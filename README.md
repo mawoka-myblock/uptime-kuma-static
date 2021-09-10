@@ -17,7 +17,8 @@ docker run -d \
   -e "PASSWORD_LOGIN=true" \
   -e "UTKUMA_PASSWORD=YOUR_PASSWORD" \
   -e "UTKUMA_USERNAME=YOUR_USERNAME" \
-  -e "UTKUMA_URL=YOUR_URL"
+  -e "UTKUMA_URL=YOUR_URL" \
+  -e "ANALYTICS_ENABLED=true"
   -v "$(pwd)"/out:/app/out \
   --name utkuma-static ghcr.io/mawoka-myblock/uptime-kuma-static:latest
 ```

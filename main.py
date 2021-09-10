@@ -12,6 +12,7 @@ config_password_login_password = getenv("UTKUMA_PASSWORD")
 config_password_login_username = getenv("UTKUMA_USERNAME")
 config_token_token = getenv("UTKUMA_TOKEN")
 config_base_url = getenv("UTKUMA_URL")
+config_analytics_enabled = getenv("ANALYTICS_ENABLED", True)
 
 sio = socketio.AsyncClient()
 mons = []
@@ -21,7 +22,7 @@ async def write_template():
     async with aiofiles.open("templates/template.jinja2", "r") as f:
         template = Template(await f.read(), enable_async=True)
     async with aiofiles.open("out/index.html", "w") as f:
-        await f.write(await template.render_async(mons=mons))
+        await f.write(await template.render_async(mons=mons, analytics=config_analytics_enabled))
 
 
 async def handle_callback(data):
