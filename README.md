@@ -2,7 +2,7 @@
 ## Introduction
 I really love [Uptime Kuma](https://github.com/louislam/uptime-kuma) by **[Louis Lam
 ](https://github.com/louislam)**, but I wanted a status-page like [Statuspage.io](https://statuspage.io) or similar,
-so I created this piece of software. It fetches the data from [Uptime Kuma](https://github.com/louislam/uptime-kuma) and
+so I created this piece of software (which is also **responsive**). It fetches the data from [Uptime Kuma](https://github.com/louislam/uptime-kuma) and
 renders a HTML-Template with the data, which can look like this:
 ![Screenshot of the rendered template](https://i.imgur.com/pwzr71t.png "Screenshot of the rendered template")
 
