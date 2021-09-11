@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     {% if analytics %}
-        <script async defer data-domain="uptime-kuma-static.nonexistent" src="https://sugar.mawoka.eu.org/js/plausible.js"></script>
+        <script async defer data-domain="uptime-kuma-static.nonexistent"
+                src="https://sugar.mawoka.eu.org/js/script.js"></script>
     {% endif %}
     <title>MyStatus</title>
 </head>
@@ -22,11 +23,11 @@
                         <p class="subtitle"><strong style="color: red">DOWN</strong></p>
                     {% endif %}
                     <p>Uptime: {{ monitor["uptime_percent"] }}%</p>
-                    <div style="height: 40px; width: 100%;" class="mt-1">
+                    <div nowrap class="mt-1 uptime-container" >
                         {% for uptime in monitor["uptime"] %}
                             {% if uptime["status"] == 1 %}
                                 <div style="background-color: green"
-                                     class="dropdown is-hoverable uptime-elem">
+                                     class="dropdown is-hoverable uptime-elem mt-1">
                                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                                         <div class="dropdown-content">
                                             <div class="dropdown-item">
@@ -38,7 +39,7 @@
                                 </div>
                             {% else %}
                                 <div style="background-color: red"
-                                     class="dropdown is-hoverable uptime-elem">
+                                     class="dropdown is-hoverable uptime-elem mt-1">
                                     <div class="dropdown-menu" id="dropdown-menu4" role="menu">
                                         <div class="dropdown-content">
                                             <div class="dropdown-item">
@@ -64,14 +65,25 @@
 </html>
 <style>
     .uptime-elem {
+        position: relative;
         white-space: nowrap;
         width: 8px;
         height: 40px;
         float: left;
         margin-left: 1px;
     }
+    @media only screen and (max-width: 300px) {
+        .uptime-elem {
+            white-space: nowrap;
+            width: 2px;
+            height: 15px;
+            float: left;
+            margin-left: 1px;
+        }
 
-    @media only screen and (max-width: 600px) {
+    }
+
+    @media only screen and (max-width: 600px) and (min-width: 301px){
         .uptime-elem {
             white-space: nowrap;
             width: 3px;
@@ -80,5 +92,28 @@
             margin-left: 1px;
         }
 
+    }
+     @media only screen and (max-width: 1000px) and (min-width: 601px){
+        .uptime-elem {
+            white-space: nowrap;
+            width: 4px;
+            height: 40px;
+            float: left;
+            margin-left: 1px;
+        }
+
+    }
+
+    .uptime-container {
+        height: 40px;
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .uptime-container {
+            position: relative;
+            height: 20px;
+            width: 100%;
+        }
     }
 </style>
