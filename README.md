@@ -1,6 +1,6 @@
 # uptime-kuma-static
 ## Demo
-Online at [uptime-kuma-static.mawoka.eu.org](https://uptime-kuma-static.mawoka.eu.org?ref=readme)
+Online at [uptime-kuma-static.mawoka.eu.org](https://uptime-kuma-static.mawoka.eu.org?utm_source=Readme&utm_medium=Github)
 ## Introduction
 I really love [Uptime Kuma](https://github.com/louislam/uptime-kuma) by **[Louis Lam
 ](https://github.com/louislam)**, but I wanted a status-page like [Statuspage.io](https://statuspage.io) or similar,
