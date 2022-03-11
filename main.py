@@ -2,11 +2,9 @@ import asyncio
 import sys
 
 import socketio
-import json
 import aiofiles
 from jinja2 import Template
 from os import getenv
-from pprint import pprint
 
 config_login_password_auth = getenv("PASSWORD_LOGIN")
 config_password_login_password = getenv("UTKUMA_PASSWORD")
@@ -72,7 +70,6 @@ async def uptime(monitor_id, data, uptime_time):
             if int(i["id"]) == int(monitor_id):
                 i["uptime_percent"] = str(uptime_time * 100)[:5]
 
-    pprint(mons)
     if len(mons[0]["uptime"]) <= 99:
         exit()
     await write_template()

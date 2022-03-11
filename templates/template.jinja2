@@ -24,7 +24,7 @@
                             {% if uptime["status"] == 1 %}
                                 <div style="background-color: green"
                                      class="dropdown is-hoverable uptime-elem mt-1">
-                                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                    <div class="dropdown-menu" id="dropdown-menu-{{ uptime["time"] }}" role="menu">
                                         <div class="dropdown-content">
                                             <div class="dropdown-item">
                                                 <p><strong>Time:</strong> {{ uptime["time"] }}</p>
@@ -36,7 +36,7 @@
                             {% else %}
                                 <div style="background-color: red"
                                      class="dropdown is-hoverable uptime-elem mt-1">
-                                    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                    <div class="dropdown-menu" id="dropdown-menu-{{ uptime["time"] }}" role="menu">
                                         <div class="dropdown-content">
                                             <div class="dropdown-item">
                                                 <p><strong>Time:</strong> {{ uptime["time"] }}</p>

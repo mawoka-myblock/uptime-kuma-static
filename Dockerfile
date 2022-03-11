@@ -1,9 +1,8 @@
-FROM python:3.9.7-alpine3.14
+FROM python:3.9
 
-
-RUN apk add --no-cache build-base
-RUN crontab -l | { cat; echo "*/1 * * * *  cd /app && python3 main.py"; } | crontab -
-RUN crontab -l | { cat; echo "@reboot  cd /app && python3 main.py"; } | crontab -
+RUN apt-get update && apt-get install -y cron
+RUN crontab -l | { cat; echo "*/1 * * * *  sh -c cd /app python3 /app/main.py"; } | crontab -
+RUN crontab -l | { cat; echo "@reboot cd /app && python3 /app/main.py"; } | crontab -
 ENV RUNTIME=docker
 
 # Create actual app
@@ -14,5 +13,9 @@ COPY templates/ /app/templates
 COPY requirements.txt /app
 WORKDIR /app
 RUN pip install -r requirements.txt
-RUN apk del build-base
-CMD ["crond", "&&", "tail", "-f", "/var/log/cron.log"]
+# CMD ["python3","main.py"]
+# SHELL ["cd", "/app", "&&", "python3", "/app/main.py"]
+CMD cd /app && python3 main.py
+# CMD /usr/sbin/cron -f -l 8
+#CMD ["/usr/sbin/cron", "-f"]
+# CMD ["python3", "main.py"]
