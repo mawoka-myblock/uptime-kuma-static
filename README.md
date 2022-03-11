@@ -20,7 +20,6 @@ docker run -d \
   -e "UTKUMA_PASSWORD=YOUR_PASSWORD" \
   -e "UTKUMA_USERNAME=YOUR_USERNAME" \
   -e "UTKUMA_URL=YOUR_URL" \
-  -e "ANALYTICS_ENABLED=true"
   -v "$(pwd)"/out:/app/out \
   --name utkuma-static ghcr.io/mawoka-myblock/uptime-kuma-static:latest
 ```
@@ -31,11 +30,10 @@ webserver (I prefer nginx (Btw: Did you know that `nginx` is pronounced
 
 ## Config-options
 
-|Environment-Variable|Value|Explanation|Standard|
-|---|---|---|---|
-|`PASSWORD_LOGIN`|`boolean`|If set to `true` login over `UTKUMA_PASSWORD` and `UTKUMA_TOKEN`, otherwise `UTKUMA_TOKEN` has to be set.|❌
-|`UTKUMA_PASSWORD`|`string`|The password for your account (Necessary if `PASSWORD_LOGIN` is set to `true`)|❌
-|`UTKUMA_USERNAME`|`string`|The username of your account (Necessary if `PASSWORD_LOGIN` is set to `true`)|❌
-|`UTKUMA_TOKEN`|`string`|The token for your account (Necessary if `PASSWORD_LOGIN` is set to `false`)|❌
-|`UTKUMA_URL`|`string`|The base-url of your uptime-kuma-instance (eg. `https://demo.uptime.kuma.pet:27000/`)|❌
-|`ANALYTICS_ENABLED`|`boolean`|If set to `true` or not set, [Plausible](https://plausible.io) will be used (hosted on my own server)|`true`
+| Environment-Variable | Value     | Explanation                                                                                               | Standard |
+|----------------------|-----------|-----------------------------------------------------------------------------------------------------------|----------|
+| `PASSWORD_LOGIN`     | `boolean` | If set to `true` login over `UTKUMA_PASSWORD` and `UTKUMA_TOKEN`, otherwise `UTKUMA_TOKEN` has to be set. | ❌        |
+| `UTKUMA_PASSWORD`    | `string`  | The password for your account (Necessary if `PASSWORD_LOGIN` is set to `true`)                            | ❌        |
+| `UTKUMA_USERNAME`    | `string`  | The username of your account (Necessary if `PASSWORD_LOGIN` is set to `true`)                             | ❌        |
+| `UTKUMA_TOKEN`       | `string`  | The token for your account (Necessary if `PASSWORD_LOGIN` is set to `false`)                              | ❌        |
+| `UTKUMA_URL`         | `string`  | The base-url of your uptime-kuma-instance (eg. `https://demo.uptime.kuma.pet:27000/`)                     | ❌        |
